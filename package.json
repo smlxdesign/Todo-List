@@ -4,12 +4,14 @@
 		"eslint-config-prettier": "^9.1.0",
 		"prettier": "^3.3.3"
 	},
-	"scripts": {
-		"compile:sass": "sass src/styles/sass/style.scss src/styles/style.css"
-	},
 	"devDependencies": {
 		"@eslint/js": "^9.11.1",
-		"sass": "^1.79.4",
 		"globals": "^15.9.0"
-	}
+	},
+	"name": "todo_list",
+	"version": "1.0.0",
+	"description": "Just a simple todo list",
+	"main": "index.js",
+	"author": "SMLX Design",
+	"license": "GPL-3.0-only"
 }
