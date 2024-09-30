@@ -1,33 +1,59 @@
-export let todoList = [
-	{
-		id: '7e022cde-33ff-4939-ac62-5cc5c1dec9fc',
-		checked: false,
-		text: 'The first todo'
-	},
-	{
-		id: '2',
-		checked: true,
-		text: 'second'
-	}
-];
+import { renderList } from '../app.js';
 
-export function findItem(todoId, kind) {
-	let result;
-	if (kind === undefined) {
-		kind = 'object';
-	}
-
-	todoList.forEach(e => {
-		if (e.id === todoId && result === undefined) {
-			if (kind === 'object') {
-				result = e;
-			} else if (kind === 'string') {
-				result = JSON.stringify(e);
-			} else if (kind === 'index') {
-				result = todoList.indexOf(e);
-			}
+export const todo = {
+	todoList: [
+		{
+			id: JSON.stringify(1),
+			checked: false,
+			text: 'Play basketball'
+		},
+		{
+			id: JSON.stringify(2),
+			checked: false,
+			text: 'Buy bread'
 		}
-	});
+	],
 
-	return result;
-}
+	findItem: function (todoId, kind) {
+		let result;
+		if (kind === undefined) {
+			kind = 'object';
+		}
+
+		this.todoList.forEach(e => {
+			if (e.id === todoId && result === undefined) {
+				if (kind === 'object') {
+					result = e;
+				} else if (kind === 'string') {
+					result = JSON.stringify(e);
+				} else if (kind === 'index') {
+					result = this.todoList.indexOf(e);
+				}
+			}
+		});
+
+		return result;
+	},
+
+	removeItem: function (id) {
+		const index = this.findItem(id, 'index');
+		this.todoList.splice(index, 1);
+		renderList();
+	},
+
+	checkItem: function (id) {
+		const item = this.findItem(id);
+		item.checked = item.checked ? false : true;
+		alert(item.checked);
+	},
+
+	addItem: function (text) {
+		todo.todoList.push({
+			id: JSON.stringify(this.todoList.length + 1),
+			checked: false,
+			text: text
+		});
+	}
+};
+
+export default todo;
