@@ -35,16 +35,16 @@ export const todo = {
 		return result;
 	},
 
+	checkItem: function (id) {
+		const item = this.findItem(id);
+		item.checked = item.checked ? false : true;
+		renderList();
+	},
+
 	removeItem: function (id) {
 		const index = this.findItem(id, 'index');
 		this.todoList.splice(index, 1);
 		renderList();
-	},
-
-	checkItem: function (id) {
-		const item = this.findItem(id);
-		item.checked = item.checked ? false : true;
-		alert(item.checked);
 	},
 
 	addItem: function (text) {

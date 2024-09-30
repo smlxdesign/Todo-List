@@ -6,16 +6,15 @@ const submitButton = document.querySelector('.submit-button');
 
 renderList();
 
-listElement.addEventListener('click', e => {
+listElement.addEventListener('click' || 'submit', e => {
+	if (e.target.className === 'checkbox') {
+		const id = string.removePrefix(e.target.id, 'checkbox-');
+		todo.checkItem(id);
+	}
+
 	if (e.target.className === 'remove-button') {
 		const id = string.removePrefix(e.target.id, 'remove-');
 		todo.removeItem(id);
-	}
-
-	if (e.target.className.includes('checkbox')) {
-		const id = string.removePrefix(e.target.id, 'checkbox-');
-		alert(e.target.checked);
-		todo.checkItem(id);
 	}
 });
 
@@ -34,8 +33,8 @@ export function renderList() {
 	todo.todoList.forEach(todo => {
 		todosHTML += `
 		<li class="todo todo-${todo.id}">
-			<input class="checkbox checkbox-${todo.id}" id="checkbox-${todo.id}" type="checkbox" ${todo.checked ? 'checked' : ''} />
-			<input type="text" value="${todo.text}" />
+			<input class="checkbox" id="checkbox-${todo.id}" type="checkbox" ${todo.checked ? 'checked' : ''} />
+			<span class="todo-text" id="todo-text-${todo.id}" type="text">${todo.text}</span>
 			<button class="remove-button" id="remove-${todo.id}">Remove</button>
 		</li>
 	`;
