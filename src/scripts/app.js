@@ -50,8 +50,10 @@ export function renderList() {
 	todo.todoList.forEach(todo => {
 		todosHTML += `
 		<li class="todo todo-${todo.id}">
-			<input class="checkbox" id="checkbox-${todo.id}" type="checkbox" ${todo.checked ? 'checked' : ''} />
-			<span class="todo-text" id="todo-text-${todo.id}" type="text">${todo.text}</span>
+			<div class="todo-info"> 
+				<input class="checkbox" id="checkbox-${todo.id}" type="checkbox" ${todo.checked ? 'checked' : ''} />
+				<span class="todo-text" id="todo-text-${todo.id}" type="text">${todo.text}</span>
+			</div>
 			<button class="remove-button" id="remove-${todo.id}">Remove</button>
 		</li>
 	`;
