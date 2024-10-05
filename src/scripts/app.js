@@ -22,10 +22,27 @@ submitButton.addEventListener('click', e => {
 	e.preventDefault();
 	const newTodo = document.querySelector('.new-todo-input');
 	const text = newTodo.value;
+	const textWithoutSpaces = text.replace(/\s+/g, '');
+
 	newTodo.value = '';
+
+	if (textWithoutSpaces === '') {
+		throwError('Please enter a todo');
+		return;
+	}
 	todo.addItem(text);
 	renderList();
 });
+
+function throwError(message) {
+	const error = document.createElement('div');
+	error.className = 'error';
+	error.innerHTML = message;
+	error.addEventListener('click', () => {
+		error.remove();
+	});
+	document.querySelector('body').appendChild(error);
+}
 
 export function renderList() {
 	let todosHTML = '';

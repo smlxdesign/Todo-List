@@ -9,7 +9,7 @@ export const todo = {
 		},
 		{
 			id: JSON.stringify(2),
-			checked: false,
+			checked: true,
 			text: 'Buy bread'
 		}
 	],
