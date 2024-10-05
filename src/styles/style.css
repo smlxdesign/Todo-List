@@ -1,7 +1,7 @@
 * {
-	font-family: Arial, Helvetica, sans-serif;
-
-	/* VARIABLES */
+	/*
+	*    VARIABLES
+	*/
 	--grey50: #f9fafb;
 	--grey300: #cbd5e1;
 	--grey500: #6b7280;
@@ -32,6 +32,9 @@
 	--success700: #15803d;
 	--success950: #052e16;
 
+	/*
+	*    FONTS
+	*/
 	font-family: 'Rubik', sans-serif;
 	font-optical-sizing: auto;
 	font-weight: 350;
@@ -40,10 +43,10 @@
 
 body {
 	background-color: #fff;
-	padding: 16px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
 	height: 100dvh;
 }
 
@@ -54,12 +57,19 @@ button {
 	padding: 8px 16px;
 }
 
+/*
+*    TODOS LIST
+*/
+
 .todo-list {
 	list-style: none;
 	padding: 0;
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
+
+	justify-content: space-between;
+	width: 100%;
 
 	li {
 		justify-content: space-between;
@@ -72,7 +82,7 @@ button {
 			align-items: center;
 			gap: 8px;
 
-			width: 300px;
+			width: 100%;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
