@@ -6,14 +6,15 @@
 
 - Add and remove TODOs
 - Check TODOs as complete
+- A beautiful and intuitive UI
  
 *More features coming soon...*
 
 ## Contributing
 
-Would love it if you send issues/pull requests. As a JS beginner, any help would be much appreciated. 
+Would love it if you submit issues/pull requests. As a JS beginner, any help would be much appreciated. 
 
-**All issues are welcome.**
+**All issues/PRs are welcome.**
 
 ## License
 
